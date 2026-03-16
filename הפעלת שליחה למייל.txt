@@ -1,0 +1,16 @@
+כדי שהפרטים מהטופס יישלחו אוטומטית למייל shoamdudik1123@gmail.com:
+
+1. היכנסי לאתר: https://formspree.io
+2. לחצי "Get Started" / "התחלה" והרשמי (חינם).
+3. אחרי ההרשמה – "New Form" / "טופס חדש".
+4. בשדה "Email" הזיני: shoamdudik1123@gmail.com
+5. שמרי את הטופס. תקבלי כתובת (URL) שנראית בערך כך:
+   https://formspree.io/f/abcdefgh
+   החלק האחרון (abcdefgh) הוא ה־Form ID.
+6. פתחי את הקובץ register.html בעורך.
+7. מצאי את השורה: data-formspree-id=""
+8. הדביקי את ה־Form ID בין המרכאות, כך:
+   data-formspree-id="abcdefgh"
+9. שמרי את register.html.
+
+מעכשיו כל הרשמה תשלח למייל shoamdudik1123@gmail.com ותפתח גם וואטסאפ למספר 0543205622 עם פרטי המבקש.
