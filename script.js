@@ -1,17 +1,20 @@
 (function () {
-  // לוגו – טעינה ממיקום הדף, ניסיון בכמה נתיבים וסיומות
-  var base = (function () {
-    var href = window.location.href;
-    var last = href.lastIndexOf('/');
-    return last === -1 ? '' : href.substring(0, last + 1);
-  })();
+  function resolveAsset(relativePath) {
+    try {
+      return new URL(relativePath, window.location.href).href;
+    } catch (e) {
+      return relativePath;
+    }
+  }
+
+  // לוגו – נתיבים יחסיים images/... (תקין ל-Vercel, GitHub Pages ותיקיית משנה)
   var logoPaths = [
-    base + 'logo.png',
-    base + 'logo.jpg',
-    base + 'logo.svg',
-    base + 'images/logo.png',
-    base + 'images/logo.jpg',
-    base + 'images/logo.svg'
+    resolveAsset('images/logo.png'),
+    resolveAsset('images/logo.jpg'),
+    resolveAsset('images/logo.svg'),
+    resolveAsset('logo.png'),
+    resolveAsset('logo.jpg'),
+    resolveAsset('logo.svg')
   ];
   var logoIndex = 0;
   document.querySelectorAll('.logo-img').forEach(function (img) {
@@ -42,16 +45,11 @@
   // טעינת תמונת המרצה – מנסים כמה נתיבים (אותה תיקייה כמו index.html או תיקיית images)
   var instructorImg = document.getElementById('instructor-photo');
   if (instructorImg) {
-    var base = (function () {
-      var href = window.location.href;
-      var last = href.lastIndexOf('/');
-      return last === -1 ? '' : href.substring(0, last + 1);
-    })();
     var pathsToTry = [
-      base + 'afek-dudik.png',           // אותה תיקייה כמו index.html
-      base + 'afek-dudik.jpg',
-      base + 'images/afek-dudik.png',
-      base + 'images/afek-dudik.jpg'
+      resolveAsset('images/afek-dudik.png'),
+      resolveAsset('images/afek-dudik.jpg'),
+      resolveAsset('afek-dudik.png'),
+      resolveAsset('afek-dudik.jpg')
     ];
     var index = 0;
 

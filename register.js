@@ -1,17 +1,19 @@
 (function () {
-  // לוגו – טעינה ממיקום הדף, ניסיון בכמה נתיבים וסיומות
-  var base = (function () {
-    var href = window.location.href;
-    var last = href.lastIndexOf('/');
-    return last === -1 ? '' : href.substring(0, last + 1);
-  })();
+  function resolveAsset(relativePath) {
+    try {
+      return new URL(relativePath, window.location.href).href;
+    } catch (e) {
+      return relativePath;
+    }
+  }
+
   var logoPaths = [
-    base + 'logo.png',
-    base + 'logo.jpg',
-    base + 'logo.svg',
-    base + 'images/logo.png',
-    base + 'images/logo.jpg',
-    base + 'images/logo.svg'
+    resolveAsset('images/logo.png'),
+    resolveAsset('images/logo.jpg'),
+    resolveAsset('images/logo.svg'),
+    resolveAsset('logo.png'),
+    resolveAsset('logo.jpg'),
+    resolveAsset('logo.svg')
   ];
   var logoIndex = 0;
   document.querySelectorAll('.logo-img').forEach(function (img) {
