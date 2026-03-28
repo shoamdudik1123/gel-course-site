@@ -42,46 +42,7 @@
     logoIndex = 1;
   });
 
-  // טעינת תמונת המרצה: מנסים כמה נתיבים (אותה תיקייה כמו index.html או תיקיית images)
-  var instructorImg = document.getElementById('instructor-photo');
-  if (instructorImg) {
-    var pathsToTry = [
-      resolveAsset('images/afek-dudik.png'),
-      resolveAsset('images/afek-dudik.jpg'),
-      resolveAsset('afek-dudik.png'),
-      resolveAsset('afek-dudik.jpg')
-    ];
-    var index = 0;
-
-    function tryNext() {
-      if (index >= pathsToTry.length) {
-        showFallback();
-        return;
-      }
-      instructorImg.onerror = tryNext;
-      instructorImg.onload = function () { instructorImg.onerror = null; };
-      instructorImg.src = pathsToTry[index];
-      index += 1;
-    }
-
-    function showFallback() {
-      instructorImg.style.display = 'none';
-      instructorImg.onerror = null;
-      var wrap = instructorImg.parentElement;
-      wrap.classList.add('instructor-img-fallback');
-      if (!wrap.querySelector('.instructor-fallback-text')) {
-        var text = document.createElement('span');
-        text.className = 'instructor-fallback-text';
-        text.textContent = 'אפק דודיק';
-        wrap.appendChild(text);
-      }
-    }
-
-    instructorImg.onerror = tryNext;
-    instructorImg.onload = function () { instructorImg.onerror = null; };
-    instructorImg.src = pathsToTry[0];
-    index = 1;
-  }
+  // תמונת המרצה: מוגדרת ב־index.html כ־images/afek-dudik.jpg
 
   // Mobile menu toggle
   var toggle = document.querySelector('.nav-toggle');
