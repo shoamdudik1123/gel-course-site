@@ -2,7 +2,7 @@
 
 1. היכנסי לאתר: https://formspree.io
 2. לחצי "Get Started" / "התחלה" והרשמי (חינם).
-3. אחרי ההרשמה – "New Form" / "טופס חדש".
+3. אחרי ההרשמה, "New Form" / "טופס חדש".
 4. בשדה "Email" הזיני: shoamdudik1123@gmail.com
 5. שמרי את הטופס. תקבלי כתובת (URL) שנראית בערך כך:
    https://formspree.io/f/abcdefgh

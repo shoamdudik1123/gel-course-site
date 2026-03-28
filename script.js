@@ -7,7 +7,7 @@
     }
   }
 
-  // לוגו – נתיבים יחסיים images/... (תקין ל-Vercel, GitHub Pages ותיקיית משנה)
+  // לוגו: נתיבים יחסיים images/... (תקין ל-Vercel, GitHub Pages ותיקיית משנה)
   var logoPaths = [
     resolveAsset('images/logo.png'),
     resolveAsset('images/logo.jpg'),
@@ -42,7 +42,7 @@
     logoIndex = 1;
   });
 
-  // טעינת תמונת המרצה – מנסים כמה נתיבים (אותה תיקייה כמו index.html או תיקיית images)
+  // טעינת תמונת המרצה: מנסים כמה נתיבים (אותה תיקייה כמו index.html או תיקיית images)
   var instructorImg = document.getElementById('instructor-photo');
   if (instructorImg) {
     var pathsToTry = [
@@ -97,7 +97,7 @@
     });
   }
 
-  // Form submit – prevent default (no backend yet), show message
+  // Form submit: prevent default (no backend yet), show message
   var form = document.querySelector('.contact-form');
   if (form) {
     form.addEventListener('submit', function (e) {

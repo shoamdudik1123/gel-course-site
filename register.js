@@ -163,7 +163,7 @@
       phone: phone,
       email: email,
       message: message,
-      _subject: 'הרשמה חדשה – קורס לק ג\'ל'
+      _subject: 'הרשמה חדשה, קורס לק ג\'ל'
     };
 
     function done(success) {
@@ -205,7 +205,7 @@
   });
 
   function openWhatsApp(num, name, phone, email, message) {
-    var text = 'הרשמה חדשה – קורס לק ג\'ל\n\nשם: ' + (name || '') + '\nטלפון: ' + (phone || '') + '\nאימייל: ' + (email || '') + '\nהודעה: ' + (message || '');
+    var text = 'הרשמה חדשה, קורס לק ג\'ל\n\nשם: ' + (name || '') + '\nטלפון: ' + (phone || '') + '\nאימייל: ' + (email || '') + '\nהודעה: ' + (message || '');
     var url = 'https://wa.me/' + num.replace(/\D/g, '') + '?text=' + encodeURIComponent(text);
     window.open(url, '_blank');
   }

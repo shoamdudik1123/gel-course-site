@@ -1,4 +1,4 @@
-/* ---- Variables – צבעים בולטים ויפים לקורס לק ג'ל ---- */
+/* ---- Variables: צבעים בולטים ויפים לקורס לק ג'ל ---- */
 :root {
   --color-bg: #fff5f8;
   --color-cream: #ffe4ec;
@@ -16,6 +16,8 @@
   --shadow-card: 0 8px 32px rgba(194, 24, 91, 0.15);
   --radius: 12px;
   --radius-lg: 20px;
+  --section-pad-y: 3.25rem;
+  --section-pad-x: 1.5rem;
 }
 
 /* ---- Base ---- */
@@ -129,7 +131,8 @@ h1, h2, h3 {
 /* ---- Hero ---- */
 .hero {
   position: relative;
-  min-height: 85vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,16 +144,28 @@ h1, h2, h3 {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: var(--color-cream) url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200') center/cover no-repeat;
+  background-color: var(--color-cream);
+  background-image: url('images/portfolio-1.jpg');
+  background-position: center 40%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scale(1.1);
+  transform-origin: center center;
 }
 
-/* שכבת כיסוי כדי שהטקסט יישאר קריא */
+/* כיסוי קריאות על גבי תמונת מסך מלא */
 .hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 245, 248, 0.92) 0%, rgba(255, 228, 236, 0.88) 50%, rgba(255, 245, 248, 0.9) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 245, 248, 0.9) 0%,
+    rgba(255, 228, 236, 0.82) 40%,
+    rgba(255, 245, 248, 0.88) 100%
+  );
   z-index: 1;
+  pointer-events: none;
 }
 
 .hero-content {
@@ -162,7 +177,8 @@ h1, h2, h3 {
 
 .hero h1 {
   font-size: clamp(2.25rem, 5vw, 3.5rem);
-  margin: 0 0 0.5rem;
+  line-height: 1.12;
+  margin: 0 0 0.45rem;
   color: var(--color-text);
   letter-spacing: -0.02em;
 }
@@ -247,7 +263,7 @@ a.btn-primary:hover {
   box-shadow: 0 8px 28px rgba(247, 198, 236, 0.5);
 }
 
-/* כפתור ה־HERO – בולט ויפה */
+/* כפתור ה־HERO: בולט ויפה */
 .btn-hero {
   padding: 1rem 2.5rem;
   font-size: 1.1rem;
@@ -266,7 +282,7 @@ a.btn-hero:hover {
 
 /* ---- Sections ---- */
 .section {
-  padding: 4rem 1.5rem;
+  padding: var(--section-pad-y) var(--section-pad-x);
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -362,7 +378,7 @@ a.btn-hero:hover {
   background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-bg) 100%);
 }
 
-.content-section .section h2::after {
+.content-section h2::after {
   background: linear-gradient(90deg, var(--color-rose-deep), var(--color-rose));
 }
 
@@ -418,14 +434,20 @@ a.btn-hero:hover {
 }
 
 /* ---- Instructor ---- */
+.instructor {
+  background: var(--color-bg);
+}
+
+/* רוחב מלא עד גבול ה־section (1100px), הכרטיס נמתח לכל הרוחב */
 .instructor .container {
-  max-width: 700px;
+  max-width: 100%;
+  width: 100%;
 }
 
 .instructor-card {
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 2rem;
+  grid-template-columns: min(260px, 32vw) minmax(0, 1fr);
+  gap: 2rem 2rem;
   align-items: start;
   background: var(--color-white);
   padding: 2rem;
@@ -465,9 +487,9 @@ a.btn-hero:hover {
 }
 
 .instructor-info p {
-  margin: 0 0 0.85rem;
+  margin: 0 0 1rem;
   color: var(--color-text-soft);
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 .instructor-info p:last-child {
@@ -475,9 +497,14 @@ a.btn-hero:hover {
 }
 
 /* ---- פרטי הקורס ---- */
+/* אותו גרדיאנט כמו "מה תלמדי", בכיוון הפוך: מעלה ורוד → למטה קרם */
 .details-section {
-  background: var(--color-white);
-  box-shadow: var(--shadow-soft);
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-cream) 100%);
+  box-shadow: none;
+}
+
+.details-section h2::after {
+  background: linear-gradient(90deg, var(--color-rose), var(--color-rose-deep));
 }
 
 .details-grid {
@@ -492,9 +519,10 @@ a.btn-hero:hover {
 .details-item {
   text-align: center;
   padding: 1rem;
-  background: var(--color-bg);
+  background: var(--color-white);
   border-radius: var(--radius);
   border: 1px solid var(--color-rose-light);
+  box-shadow: var(--shadow-soft);
 }
 
 .details-label {
@@ -509,9 +537,23 @@ a.btn-hero:hover {
   color: var(--color-text);
 }
 
+.details-bundle {
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  padding: 1.35rem 1.5rem 1.5rem;
+  background: var(--color-white);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-rose-light);
+  box-shadow: var(--shadow-soft);
+}
+
 .details-included {
   max-width: 360px;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
+}
+
+.details-bundle .details-included {
+  margin-bottom: 0;
 }
 
 .details-included h3 {
@@ -548,7 +590,9 @@ a.btn-hero:hover {
   text-align: center;
   font-size: 1.35rem;
   color: var(--color-text);
-  margin: 2rem 0 0;
+  margin: 1.35rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(233, 30, 140, 0.15);
 }
 
 .details-price strong {
@@ -568,8 +612,7 @@ a.btn-hero:hover {
   font-size: 1rem;
 }
 
-.portfolio-placeholder,
-.testimonials-placeholder {
+.portfolio-placeholder {
   min-height: 180px;
   background: var(--color-cream);
   border: 2px dashed var(--color-rose-light);
@@ -578,7 +621,94 @@ a.btn-hero:hover {
   max-width: 800px;
 }
 
-/* תיק עבודות – גריד תמונות */
+/* לקוחות מרוצים: ציטוטים */
+.testimonials-section .container {
+  max-width: 100%;
+}
+
+.testimonials-intro {
+  text-align: center;
+  color: var(--color-text-soft);
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+  max-width: 640px;
+  margin-inline: auto;
+  line-height: 1.65;
+}
+
+/* 3 המלצות: שורה אחת במסך רחב, 2+1 בינוני, עמודה במובייל */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 0;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonial-card {
+  margin: 0;
+  padding: 1.5rem;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-rose-light);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.testimonial-card::before {
+  content: '״';
+  position: absolute;
+  top: 0.65rem;
+  right: 1rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--color-rose-light);
+  font-family: Georgia, 'Times New Roman', serif;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.testimonial-card blockquote {
+  margin: 0;
+  padding: 0.35rem 0 0;
+}
+
+.testimonial-card blockquote p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--color-text-soft);
+}
+
+.testimonial-author {
+  display: block;
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(233, 30, 140, 0.15);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-rose-deep);
+}
+
+/* תיק עבודות: גריד תמונות */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -804,7 +934,7 @@ a.btn-hero:hover {
   }
 
   .hero {
-    min-height: 75vh;
+    min-height: 100dvh;
     padding: 5rem 1rem 3rem;
   }
 
