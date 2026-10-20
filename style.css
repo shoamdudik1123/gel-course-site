@@ -319,6 +319,46 @@ a.btn-hero:hover {
   border-color: rgba(255, 255, 255, 0.6);
 }
 
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:hover,
+a.btn-whatsapp:hover {
+  background: #1ebe5d;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+}
+
+.btn-whatsapp svg {
+  flex-shrink: 0;
+}
+
+.btn-whatsapp.btn-hero:hover,
+a.btn-whatsapp.btn-hero:hover {
+  box-shadow: 0 10px 32px rgba(18, 140, 70, 0.45);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-whatsapp--nav {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+  border-radius: 50px;
+  box-shadow: none;
+}
+
+.nav-links a.btn-whatsapp--nav,
+.nav-links a.btn-whatsapp--nav:hover {
+  color: #fff;
+}
+
 /* ---- Sections ---- */
 .section {
   padding: var(--section-pad-y) var(--section-pad-x);
@@ -905,6 +945,22 @@ a.btn-hero:hover {
   margin: 0 0 2rem;
 }
 
+.register-whatsapp {
+  background: var(--color-white);
+  padding: 2.25rem 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-rose-light);
+  text-align: center;
+}
+
+.btn-whatsapp--lg {
+  width: 100%;
+  padding: 1.05rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+}
+
 .register-form {
   background: var(--color-white);
   padding: 2rem;
@@ -984,6 +1040,10 @@ a.btn-hero:hover {
     padding: 1rem;
     box-shadow: var(--shadow-card);
     gap: 0.5rem;
+  }
+
+  .nav-links.open .btn-whatsapp--nav {
+    width: 100%;
   }
 
   .hero {
